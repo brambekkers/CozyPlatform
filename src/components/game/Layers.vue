@@ -3,14 +3,16 @@ import Tile from '@/components/game/layers/Tile.vue'
 import Block from '@/components/game/layers/Block.vue'
 import Interaction from '@/components/game/layers/Interaction.vue'
 
+const { scene } = defineProps<{
+  scene: Scene
+}>()
 const tileStore = useTileStore()
 const { showBlockingLayer, showInteractionLayer } = storeToRefs(useDebugStore())
-const { currentScene } = storeToRefs(useSceneStore())
 
 const loadTiles = async () => {
-  for (let y = 0; y < currentScene.value.tiles.length; y++) {
-    for (let x = 0; x < currentScene.value.tiles[y].length; x++) {
-      const tile = currentScene.value.tiles[y][x]
+  for (let y = 0; y < scene.tiles.length; y++) {
+    for (let x = 0; x < scene.tiles[y].length; x++) {
+      const tile = scene.tiles[y][x]
       await tileStore.loadTile(tile)
     }
   }
@@ -22,27 +24,27 @@ await loadTiles()
 <template>
   <!-- Base layer -->
   <section class="layer">
-    <div class="row" v-for="(row, y) of currentScene.tiles" :key="y">
+    <div class="row" v-for="(row, y) of scene.tiles" :key="y">
       <Tile v-for="(tile, x) in row" :key="`base-${x}-${y}`" :tile />
     </div>
   </section>
 
   <!-- Blocking layer -->
   <section v-if="showBlockingLayer" class="layer">
-    <div class="row" v-for="(row, y) of currentScene.block" :key="y">
+    <div class="row" v-for="(row, y) of scene.block" :key="y">
       <Block
         v-for="(block, x) in row"
         :key="`block-${x}-${y}`"
         :block
-        :h="currentScene.tileHeight"
-        :w="currentScene.tileWidth"
+        :h="scene.tileHeight"
+        :w="scene.tileWidth"
       />
     </div>
   </section>
 
   <!-- Interaction layer -->
   <section v-if="showInteractionLayer" class="layer">
-    <Interaction v-for="(interaction, i) of currentScene.interactions" :key="i" :interaction />
+    <Interaction v-for="(interaction, i) of scene.interactions" :key="i" :interaction />
   </section>
 </template>
 

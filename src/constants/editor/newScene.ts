@@ -1,0 +1,22 @@
+export default {
+  id: 'newScene',
+  tileWidth: 16,
+  tileHeight: 16,
+  startPosition: { x: 0, y: 0 },
+  w: 160,
+  h: 160,
+  tiles: [
+    [null, null, null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null, null, null],
+  ],
+  block: [],
+  interactions: [],
+}

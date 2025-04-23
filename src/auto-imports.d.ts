@@ -69,6 +69,7 @@ declare global {
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
   const useDebugStore: typeof import('./stores/debug')['useDebugStore']
+  const useEditorStore: typeof import('./stores/editor')['useEditorStore']
   const useId: typeof import('vue')['useId']
   const useLayoutStore: typeof import('./stores/layout')['useLayoutStore']
   const useModel: typeof import('vue')['useModel']

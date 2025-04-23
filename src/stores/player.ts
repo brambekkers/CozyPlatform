@@ -1,5 +1,3 @@
-import { defineStore, storeToRefs } from 'pinia'
-
 export const usePlayerStore = defineStore('player', () => {
   const { currentScene } = storeToRefs(useSceneStore())
 

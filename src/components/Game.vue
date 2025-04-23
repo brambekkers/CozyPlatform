@@ -38,7 +38,7 @@ onUnmounted(() => {
     <Debug />
     <div id="scene" :style="sceneStyle">
       <Suspense :key="currentScene.id">
-        <Layers />
+        <Layers :scene="currentScene" />
         <template #fallback>Loading...</template>
       </Suspense>
       <Player />
@@ -46,7 +46,7 @@ onUnmounted(() => {
   </section>
 </template>
 
-<style lang="css">
+<style lang="css" scoped>
 #game {
   width: 100vw;
   height: 100vh;

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Button from '@/components/global/Button.vue'
+import Title from '@/components/global/Title.vue'
 
 const isOpen = defineModel<boolean>({ required: true })
 const { title, width = '50vw' } = defineProps<{ title: string; width?: string }>()
@@ -9,7 +10,9 @@ const { title, width = '50vw' } = defineProps<{ title: string; width?: string }>
   <div class="backdrop" :class="{ hidden: !isOpen }">
     <section class="modal" :class="{ visible: isOpen }">
       <Button color="danger" class="close" @click="isOpen = false">X</Button>
-      <header>{{ title }}</header>
+      <header>
+        <Title :title="title" />
+      </header>
       <main>
         <slot />
       </main>
@@ -38,7 +41,7 @@ const { title, width = '50vw' } = defineProps<{ title: string; width?: string }>
 
   .modal {
     position: relative;
-    color: white;
+    color: #fffec4;
     scale: 0;
     opacity: 0;
     transition: all 500ms
@@ -106,16 +109,11 @@ const { title, width = '50vw' } = defineProps<{ title: string; width?: string }>
       background-color: #248ef6;
       border-bottom: #055cb3 solid 6px;
       padding-top: 3px;
-      text-shadow:
-        black 0px 4px 0px,
-        black 2px 0px 0px,
-        black -2px 0px 0px,
-        black 0px -2px 0px;
       min-height: 80px;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 40px;
+      font-size: 30px;
     }
 
     main {
