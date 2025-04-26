@@ -89,6 +89,6 @@ declare global {
   export type { Component, Slot, Slots, ComponentPublicInstance, ComputedRef, DirectiveBinding, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, MaybeRef, MaybeRefOrGetter, VNode, WritableComputedRef } from 'vue'
   import('vue')
   // @ts-ignore
-  export type { SceneName, Tile, Interaction, Scene } from './types/Scene'
+  export type { SceneName, Coordinate, Tile, Interaction, Scene, EditorScene } from './types/Scene'
   import('./types/Scene')
 }

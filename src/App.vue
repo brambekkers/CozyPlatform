@@ -15,13 +15,6 @@ const { gameModus } = storeToRefs(useLayoutStore())
 </template>
 
 <style lang="css">
-#scene {
-  scale: 4;
-
-  position: relative;
-  background-color: burlywood;
-}
-
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;

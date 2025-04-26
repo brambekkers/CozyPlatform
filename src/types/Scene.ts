@@ -1,4 +1,5 @@
-export type SceneName = 'home' | 'second'
+export type SceneName = 'home' | 'second' | 'newScene'
+export type Coordinate = { x: number; y: number }
 
 export type Tile = {
   id: string
@@ -22,10 +23,14 @@ export type Scene = {
   id: SceneName
   tileWidth: number
   tileHeight: number
-  startPosition: { x: number; y: number }
+  startPosition: Coordinate
   w: number
   h: number
   tiles: Tile[][]
   block: (1 | 0)[][]
   interactions: Interaction[]
+}
+
+export type EditorScene = Scene & {
+  tiles: null[][]
 }

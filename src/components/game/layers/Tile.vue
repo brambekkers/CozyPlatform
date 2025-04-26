@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { tile } = defineProps<{ tile: Tile }>()
+const { tile, mode = 'game' } = defineProps<{ tile: Tile; mode?: 'game' | 'editor' }>()
 const { tiles } = useTileStore()
 
 const tileStyle = computed(() => ({
@@ -10,5 +10,12 @@ const tileStyle = computed(() => ({
 </script>
 
 <template>
-  <div :style="tileStyle" />
+  <div class="tile" :style="tileStyle" />
 </template>
+
+<style scoped>
+.tile {
+  background-position: center;
+  background-size: cover;
+}
+</style>

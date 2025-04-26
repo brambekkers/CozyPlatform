@@ -19,4 +19,4 @@ export default {
   ],
   block: [],
   interactions: [],
-}
+} as const

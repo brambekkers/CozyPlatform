@@ -6,7 +6,7 @@ const base = {
   img: tilesheet,
 }
 
-export default {
+export const tiles = {
   1: {
     ...base,
     id: 'grass_empty_corner_top_left',
@@ -86,3 +86,38 @@ export default {
     y: 4,
   },
 } as const
+
+export const grassDirt = [
+  // Layer 1
+  null,
+  tiles[1],
+  tiles[2],
+  tiles[3],
+  null,
+  // Layer 2
+  tiles[1],
+  tiles[10],
+  tiles[5],
+  tiles[11],
+  tiles[3],
+  // Layer 3
+  tiles[4],
+  tiles[5],
+  tiles[5],
+  tiles[5],
+  tiles[6],
+  // Layer 4
+  tiles[7],
+  tiles[13],
+  tiles[5],
+  tiles[12],
+  tiles[9],
+  // Layer 4
+  null,
+  tiles[7],
+  tiles[8],
+  tiles[9],
+  null,
+]
+
+export default tiles

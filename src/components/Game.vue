@@ -58,9 +58,7 @@ onUnmounted(() => {
 
   #scene {
     scale: 4;
-
     position: relative;
-    background-color: burlywood;
   }
 }
 </style>
