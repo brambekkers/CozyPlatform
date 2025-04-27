@@ -3,9 +3,9 @@ const { title = 'Title' } = defineProps<{ title?: string }>()
 </script>
 
 <template>
-  <h2>
+  <h2 class="relative">
     <span v-for="letter of title" :key="letter">
-      <span class="shadow">{{ letter }}</span>
+      <span class="custom-shadow">{{ letter }}</span>
       <span class="title">{{ letter }}</span>
     </span>
   </h2>
@@ -13,7 +13,7 @@ const { title = 'Title' } = defineProps<{ title?: string }>()
 
 <style>
 h2 {
-  .shadow {
+  .custom-shadow {
     position: absolute;
     color: #000;
     transform: scaleX(1.1) scaleY(1.2);

@@ -17,18 +17,28 @@ watch([tilesX, tilesY], ([x, y], [oldX, oldY]) => {
 </script>
 
 <template>
-  <section class="tile-amount">
-    <div class="size">
-      Cells per row:
-      <div class="counter">
+  <section class="flex flex-col bg-[#183e82] p-8 gap-4 rounded -skew-x-5">
+    <!-- Row size -->
+    <div class="size text-nowrap">
+      <span class="flex gap-2 bg-[#395991] pe-4 py-1 -skew-x-10 items-center text-white">
+        <MainTitle title="X" class="text-white text-3xl -translate-x-2 -rotate-12" />
+        <MainTitle title="Cells per row" class="text-white text-lg skew-x-15 -ms-1" />
+        <span class="-ms-1"></span>
+      </span>
+      <div class="flex justify-between">
         <button class="minus" @click="tilesX--" :disabled="tilesX <= 1">-</button>
         <input v-model="tilesX" type="number" readonly />
         <button class="plus" @click="tilesX++">+</button>
       </div>
     </div>
-    <div class="size">
-      Cells per column
-      <div class="counter">
+
+    <!-- Column size -->
+    <div class="size text-nowrap">
+      <span class="flex gap-2 bg-[#395991] pe-4 py-1 -skew-x-10 items-center">
+        <MainTitle title="Y" class="text-white text-3xl -translate-x-2 -rotate-12" />
+        <MainTitle title="Cells per column" class="text-white text-lg skew-x-15 -ms-1" />
+      </span>
+      <div class="flex justify-between">
         <button class="minus" @click="tilesY--" :disabled="tilesY <= 1">-</button>
         <input v-model="tilesY" type="number" readonly />
         <button class="plus" @click="tilesY++">+</button>
@@ -38,57 +48,43 @@ watch([tilesX, tilesY], ([x, y], [oldX, oldY]) => {
 </template>
 
 <style lang="css" scoped>
-.tile-amount {
+.size {
   display: flex;
-  flex-direction: column;
-  gap: 0.5cqw;
+  justify-content: space-between;
+  align-items: center;
 
-  .size {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: max(1cqw, 20px);
+  .plus,
+  .minus {
+    color: white;
+    background-color: #021438;
+    font-size: max(0.75cqw, 16px);
+    padding: 0.4cqw 0.5cqw;
+    cursor: pointer;
 
-    .counter {
-      display: flex;
-      align-items: center;
-
-      .plus,
-      .minus {
-        border: solid 1px #000;
-        background-color: #b9e0f8;
-        font-size: max(0.75cqw, 16px);
-        padding: 0.4cqw 0.8cqw;
-        cursor: pointer;
-
-        &:hover {
-          background-color: #abd3ec;
-        }
-      }
-
-      .minus {
-        border-top-left-radius: 0.2cqw;
-        border-bottom-left-radius: 0.2cqw;
-      }
-
-      .plus {
-        border-top-right-radius: 0.2cqw;
-        border-bottom-right-radius: 0.2cqw;
-      }
-
-      input {
-        width: max(2.5cqw, 50px);
-        text-align: center;
-        border: solid 1px #000;
-        border-left: none;
-        border-right: none;
-        background-color: #b9e0f8;
-        font-size: max(0.75cqw, 16px);
-        padding: 0.4cqw 0.8cqw;
-        outline: none;
-        cursor: default;
-      }
+    &:hover {
+      background-color: #000000;
     }
+  }
+
+  .minus {
+    border-top-left-radius: 0.2cqw;
+    border-bottom-left-radius: 0.2cqw;
+  }
+
+  .plus {
+    border-top-right-radius: 0.2cqw;
+    border-bottom-right-radius: 0.2cqw;
+  }
+
+  input {
+    color: white;
+    width: 50px;
+    text-align: center;
+    border: none;
+    background-color: #021438;
+    padding: 0.2cqw 0.4cqw;
+    outline: none;
+    cursor: default;
   }
 }
 </style>

@@ -1,19 +1,15 @@
 <script setup lang="ts">
 import Shape1 from '@/components/shapes/shape1.vue'
-import Shape2 from '@/components/shapes/shape2.vue'
-import Title from '@/components/global/Title.vue'
 
 import Main from '@/components/editor/Main.vue'
 import Sidebar from '@/components/editor/Sidebar.vue'
 </script>
 
 <template>
-  <section id="editor">
-    <Shape2 class="background-shape" color="#1e7fb1" />
-
+  <section id="editor" class="flex flex-col md:flex-row">
     <div class="title">
-      <Shape1 class="title-shape" color="#1e7fb1" />
-      <Title class="title" color="#fffec4" title="Map Maker" />
+      <Shape1 class="title-shape" color="#3d76e0" />
+      <MainTitle class="title" color="#fffec4" title="Map Maker" />
     </div>
 
     <Main />
@@ -27,18 +23,7 @@ import Sidebar from '@/components/editor/Sidebar.vue'
   width: 100vw;
   height: 100vh;
 
-  display: flex;
   background-color: sandybrown;
-
-  .background-shape {
-    position: absolute;
-    top: -2px;
-    right: -2px;
-    height: calc(100% + 4px);
-    max-width: 1200px;
-    min-width: 400px;
-    width: 30vw;
-  }
 
   .title {
     position: absolute;
@@ -69,12 +54,6 @@ import Sidebar from '@/components/editor/Sidebar.vue'
     position: relative;
     z-index: 3;
     flex-grow: 1;
-  }
-  aside {
-    max-width: 1200px;
-    min-width: 400px;
-    width: 30vw;
-    z-index: 3;
   }
 }
 </style>

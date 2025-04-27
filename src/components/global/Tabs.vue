@@ -17,7 +17,7 @@ watch(activeTab, (newVal, oldVal) => {
 </script>
 
 <template>
-  <section class="tabs-container">
+  <section class="flex flex-col">
     <div class="tabs">
       <div
         v-for="{ label, value } of tabs"
@@ -30,7 +30,7 @@ watch(activeTab, (newVal, oldVal) => {
       </div>
     </div>
 
-    <div class="active-tab">
+    <div class="active-tab overflow-hidden">
       <Transition name="slide" mode="out-in">
         <div :key="activeTab">
           <slot>
@@ -43,37 +43,32 @@ watch(activeTab, (newVal, oldVal) => {
 </template>
 
 <style lang="css" scoped>
-.tabs-container {
+.tabs {
   display: flex;
-  flex-direction: column;
+  gap: 0.5cqw;
+  margin-inline: 0.5cqw;
 
-  .tabs {
-    display: flex;
-    gap: 0.5cqw;
-    margin-inline: 0.5cqw;
+  .tab {
+    cursor: pointer;
+    background-color: burlywood;
+    border-top-left-radius: 0.2cqw;
+    border-top-right-radius: 0.2cqw;
+    padding: 0.4cqw 0.8cqw;
+    font-size: max(0.75cqw, 16px);
+    opacity: 0.7;
+    transition: all 0.2s ease-in-out;
 
-    .tab {
-      cursor: pointer;
-      background-color: burlywood;
-      border-top-left-radius: 0.2cqw;
-      border-top-right-radius: 0.2cqw;
-      padding: 0.4cqw 0.8cqw;
-      font-size: max(0.75cqw, 16px);
-      opacity: 0.7;
-      transition: all 0.2s ease-in-out;
-
-      &.active {
-        opacity: 1;
-      }
+    &.active {
+      opacity: 1;
     }
   }
+}
 
-  .active-tab {
-    background-color: burlywood;
-    border-radius: 0.2cqw;
-    min-height: 100px;
-    padding: 1cqw;
-  }
+.active-tab {
+  background-color: burlywood;
+  border-radius: 0.2cqw;
+  min-height: 100px;
+  padding: 1cqw;
 }
 
 .slide-enter-active,

@@ -1,6 +1,7 @@
 <script setup lang="ts">
-const { color = 'primary' } = defineProps<{
+const { color = 'primary', size = 'normal' } = defineProps<{
   color?: 'warning' | 'danger' | 'success' | 'primary' | 'contrast'
+  size?: 'small' | 'normal' | 'large'
 }>()
 
 const buttonColor = computed(() => {
@@ -13,6 +14,12 @@ const buttonColor = computed(() => {
   else if (color === 'contrast')
     return 'linear-gradient(0deg, #272c3d 0% 10%, #333b52 10% 90%, #5e5576 90% 100%)'
   else return 'linear-gradient(0deg, #094af1 0% 10%, #2373ff 10% 90%, #1499ff 90% 100%)'
+})
+
+const fontSize = computed(() => {
+  if (size === 'small') return '16px'
+  else if (size === 'normal') return '24px'
+  else return '32px'
 })
 </script>
 
@@ -32,6 +39,7 @@ button {
   transform: skew(-7deg);
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.5) 1px 4px 0px 0px;
+  border: 2px solid rgba(0, 0, 0, 1);
   filter: grayscale(0.2);
   display: flex;
   justify-content: center;
@@ -57,7 +65,7 @@ button {
 
   .content {
     color: white;
-    font-size: 24px;
+    font-size: v-bind(fontSize);
     text-shadow:
       black 0px 3px 0px,
       black 1px 0px 0px,

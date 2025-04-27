@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Button from '@/components/global/Button.vue'
-import Title from '@/components/global/Title.vue'
 
 const isOpen = defineModel<boolean>({ required: true })
 const { title, width = '50vw' } = defineProps<{ title: string; width?: string }>()
@@ -11,7 +10,7 @@ const { title, width = '50vw' } = defineProps<{ title: string; width?: string }>
     <section class="modal" :class="{ visible: isOpen }">
       <Button color="danger" class="close" @click="isOpen = false">X</Button>
       <header>
-        <Title :title="title" />
+        <MainTitle :title="title" />
       </header>
       <main>
         <slot />
